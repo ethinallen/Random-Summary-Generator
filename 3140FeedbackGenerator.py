@@ -1,32 +1,27 @@
-
-# coding: utf-8
-
-# In[2]:
-
-
 import random
 import string
 
 def makeResponse():
-    with open ('/Users/andrewemery/Desktop/dictionary.txt','r') as f:
+    with open ('/Users/Desktop/dictionary.txt','r') as f:
         data = f.readlines()
     #how many words you tryna cop?
     numWords = 100
-    #I wanted to use base1 indexing but I'm not one of those dum enjineres (i am most certainly am)
-    startPos = 0
+    
+    #initiate random string
     REEEEE = ''
-    #should i insert a period? not yet you tricky boy, you
+    
+    #inserts a period
     insPeriod = False
-    #do I want to start a new line RIGHT OFF THE BAT 
-    #### YER DANG STRAIT I DO
+    
+    #starts a new line
     newline = True
     for i in range(numWords):
         lengthString = random.randint(1,6)
-        startPos = random.randint(0,(len(data)-6))
         newWord = data[startPos]
         newLen = int(len(newWord)-1)
         newWord = newWord[0:newLen]
         if newline == True:
+            #capitalize the word that begins a new sentence 
             newWord = string.capwords(newWord)
             newline = 0
         if insPeriod == 13:
@@ -36,6 +31,7 @@ def makeResponse():
         else:
             REEEEE = REEEEE + newWord + ' '
             string.capwords(REEEEE)
+        # average sentence contains 15 words but I am the chiefton of this reserve
         insPeriod = random.randint(0,13)
     print(REEEEE)
 
