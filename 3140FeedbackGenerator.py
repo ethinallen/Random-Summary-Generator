@@ -5,10 +5,13 @@ def makeResponse():
     with open ('/Users/Desktop/dictionary.txt','r') as f:
         data = f.readlines()
     #how many words you tryna cop?
-    numWords = 100
-    
+    try:
+        numWords = int(input('How many numbers do you want?'))
+    except:
+        print('You didn\'t enter a number')
+        
     #initiate random string
-    REEEEE = ''
+    outputString = ''
     
     #inserts a period
     insPeriod = False
@@ -25,15 +28,15 @@ def makeResponse():
             newWord = string.capwords(newWord)
             newline = 0
         if insPeriod == 13:
-            REEEEE = REEEEE + newWord
-            REEEEE = REEEEE + '.' + ' '
+            outputString += newWord
+            outputString += '.' + ' '
             newline = 1
         else:
-            REEEEE = REEEEE + newWord + ' '
-            string.capwords(REEEEE)
+            outputString += newWord + ' '
+            string.capwords(outputString)
         # average sentence contains 15 words but I am the chiefton of this reserve
         insPeriod = random.randint(0,13)
-    print(REEEEE)
+    print(outputString)
 
 if __name__ == "__main__":
     makeResponse()
